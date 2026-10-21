@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C6-03",
-  "former_id": "C6-04",
-  "id_history": {
-    "2026-10-13": "C6-04",
-    "2026-10-14": "C6-04"
-  },
   "category": "C6",
   "task": "Terminal-Bench 2.0 / video-processing",
   "framework": "evaluation/rubrics/coding_quality.json",

@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C7-10",
-  "former_id": "C7-13",
-  "id_history": {
-    "2026-10-13": "C8-05",
-    "2026-10-14": "C7-13"
-  },
   "category": "C7",
   "task": "DeepSWE v1.1 / onedump-dump-encryption-pipeline",
   "framework": "evaluation/rubrics/coding_quality.json",

@@ -33,3 +33,11 @@ def current_id(entry_id: str, run_name: str) -> str:
         if ts and ts < ep["runs_before"]:
             entry_id = ep["old_to_new"].get(entry_id, entry_id)
     return entry_id
+
+
+def task_label(entry: dict) -> str:
+    """Human-readable task label for logs and reports, e.g. 'Terminal-Bench 2.0 / filter-js-from-html'."""
+    src = entry.get("source") or {}
+    bench = src.get("benchmark", entry.get("category", ""))
+    task = src.get("task_id") or (src.get("path", "").rstrip("/").split("/")[-1] if src.get("path") else "")
+    return f"{bench} / {task}" if task else f"{bench} / {entry.get('instance_id', '')}"

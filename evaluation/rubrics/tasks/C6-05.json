@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C6-05",
-  "former_id": "C7-01",
-  "id_history": {
-    "2026-10-13": "C6-01",
-    "2026-10-14": "C7-01"
-  },
   "category": "C6",
   "task": "Terminal-Bench 2.0 / polyglot-c-py",
   "framework": "evaluation/rubrics/coding_quality.json",

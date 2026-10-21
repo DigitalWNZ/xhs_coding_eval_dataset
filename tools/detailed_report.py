@@ -13,7 +13,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from idmap import XHS, current_id  # noqa: E402
+from idmap import XHS, current_id, task_label  # noqa: E402
 
 AGENTS = {"agy": "Antigravity", "claude": "Claude Code"}
 MODEL_ORDER = ["claude-opus-5-5", "gemini-3.6-flash-high", "gemini-3.8-flash-high", "gemini-4-argon-high"]
@@ -61,7 +61,7 @@ def fmt_time(s):
 
 
 def source(e):
-    return e["maps_to_journey"].replace("External: ", "")
+    return task_label(e)
 
 
 out = []
@@ -73,9 +73,7 @@ out.append("Agents: Antigravity (agy) with gemini-3.6-flash-high / gemini-3.8-fl
            "continuous score in [0, 1] and passes at >= 0.1. Runs invalidated by harness bugs are excluded (see "
            "results/*_runs_invalid/); trials that later failed the validity audit are NOT excluded here "
            "(see results/README_quality.md).\n")
-out.append("Entry IDs follow the current (2026-10-15) layout; *Former ID* is the ID before that restructure; runs are "
-           "mapped from the ID they "
-           "recorded (raw run folders keep it; mapping in results/id_mapping.json).\n")
+out.append("Entry IDs follow the current layout; runs recorded under older IDs are mapped via results/id_mapping.json.\n")
 out.append("Columns: *Details* = grader verdict (F2P/P2P = fail-to-pass / pass-to-pass tests passed); "
            "*Agent time* = agent wall time (budget-capped); *Tokens* = input+output incl. cache; "
            "*Turns* as reported by the agent CLI (agy reports 1 per session; when agy hits its time "
@@ -83,8 +81,8 @@ out.append("Columns: *Details* = grader verdict (F2P/P2P = fail-to-pass / pass-t
 
 # Overview
 out.append("## Overview\n")
-out.append("| Entry | Former ID | Source / task | " + " | ".join(models) + " |")
-out.append("|---|---|---|" + "---|" * len(models))
+out.append("| Entry | Source / task | " + " | ".join(models) + " |")
+out.append("|---|---|" + "---|" * len(models))
 cat_tot = collections.defaultdict(lambda: [0, 0])
 for cat in CATS:
     for eid in sorted(k for k in entries if k.startswith(cat)):
@@ -95,9 +93,9 @@ for cat in CATS:
             cat_tot[(cat, m)][0] += p
             cat_tot[(cat, m)][1] += len(ts)
             row.append(f"{p}/{len(ts)}" if ts else "—")
-        out.append(f"| {eid} | {entries[eid].get('former_id', '')} | {source(entries[eid])} | "
+        out.append(f"| {eid} | {source(entries[eid])} | "
                    + " | ".join(row) + " |")
-    out.append(f"| **{cat} total** | | | " + " | ".join(
+    out.append(f"| **{cat} total** | | " + " | ".join(
         f"**{cat_tot[(cat, m)][0]}/{cat_tot[(cat, m)][1]} "
         f"({100 * cat_tot[(cat, m)][0] / max(cat_tot[(cat, m)][1], 1):.0f}%)**" for m in models) + " |")
 allp = {m: sum(cat_tot[(c, m)][0] for c in CATS) for m in models}
@@ -110,8 +108,7 @@ for cat in CATS:
     out.append(f"## {CAT_NAMES[cat]}\n")
     for eid in sorted(k for k in entries if k.startswith(cat)):
         e = entries[eid]
-        out.append(f"### {eid} · {source(e)} (former {e.get('former_id', '—')})\n")
-        out.append(f"- **Rednote relevance:** {e.get('rednote_relevance', '—')}")
+        out.append(f"### {eid} · {source(e)}\n")
         if e.get("daily_work_scenario"):
             out.append(f"- **Daily-work scenario:** {e['daily_work_scenario']}")
         v = e["verification"]

@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C7-02",
-  "former_id": "C7-04",
-  "id_history": {
-    "2026-10-13": "C6-07",
-    "2026-10-14": "C7-04"
-  },
   "category": "C7",
   "task": "Terminal-Bench 2.0 / db-wal-recovery",
   "framework": "evaluation/rubrics/coding_quality.json",

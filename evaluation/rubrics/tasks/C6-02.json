@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C6-02",
-  "former_id": "C6-03",
-  "id_history": {
-    "2026-10-13": "C8-02",
-    "2026-10-14": "C6-03"
-  },
   "category": "C6",
   "task": "DeepSWE v1.1 / pebble-durability-wait-apis",
   "framework": "evaluation/rubrics/coding_quality.json",

@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C6-06",
-  "former_id": "C7-03",
-  "id_history": {
-    "2026-10-13": "C6-05",
-    "2026-10-14": "C7-03"
-  },
   "category": "C6",
   "task": "Terminal-Bench 2.0 / cancel-async-tasks",
   "framework": "evaluation/rubrics/coding_quality.json",

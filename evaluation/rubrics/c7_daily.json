@@ -49,8 +49,7 @@
       "Multiple trials are needed because single agent runs are high-variance; our runs use 3 trials (--trials 3; the CLI default is 5).",
       "Infrastructure failures (sandbox start, build) are recorded per trial as infra_error and count as 0; rerun any trial that shows infra_error.",
       "D1 has no LLM judge: every entry has an objective, verifier-defined outcome. D2 is graded by one LLM judge (Claude Opus 5.5).",
-      "C7 entries (2026-10-15 restructure): Rednote-relevant daily-work cases most setups solve (campaign 2026-10-14 pass rates 85-100%); D2 (code quality) does most of the separating here.",
-      "Each entry keeps its previous ID in former_id and all IDs in id_history (see results/id_mapping.json)."
+      "C7 entries (2026-10-15 restructure): Rednote-relevant daily-work cases most setups solve (campaign 2026-10-14 pass rates 85-100%); D2 (code quality) does most of the separating here."
     ]
   },
   "verifier_contract": {

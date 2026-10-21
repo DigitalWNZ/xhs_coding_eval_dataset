@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C6-07",
-  "former_id": "C7-12",
-  "id_history": {
-    "2026-10-13": "C8-04",
-    "2026-10-14": "C7-12"
-  },
   "category": "C6",
   "task": "DeepSWE v1.1 / query-persist-restored-query-state",
   "framework": "evaluation/rubrics/coding_quality.json",

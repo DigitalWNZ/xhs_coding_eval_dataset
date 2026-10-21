@@ -64,6 +64,14 @@ GIT_IDENTITY = {"GIT_AUTHOR_NAME": "agent", "GIT_AUTHOR_EMAIL": "agent@example.c
 for _k, _v in GIT_IDENTITY.items():
     os.environ.setdefault(_k, _v)
 
+
+def task_label(entry: dict) -> str:
+    """Human-readable task label for logs and reports, e.g. 'Terminal-Bench 2.0 / filter-js-from-html'."""
+    src = entry.get("source") or {}
+    bench = src.get("benchmark", entry.get("category", ""))
+    task = src.get("task_id") or (src.get("path", "").rstrip("/").split("/")[-1] if src.get("path") else "")
+    return f"{bench} / {task}" if task else f"{bench} / {entry.get('instance_id', '')}"
+
 CMD_TIMEOUT_SEC = 120
 MAX_OUTPUT_CHARS = 8000
 
@@ -1083,7 +1091,7 @@ def run_c6(entry: dict, agent: str, model: str, timeout: int) -> dict:
     # gold/empty are deterministic (the verifier is deterministic), so one trial suffices.
     # Real agents are stochastic: use CONFIG["trials"] (default 5).
     n = 1 if agent in ("gold", "empty") else CONFIG["trials"]
-    print(f"\n{'='*60}\nRunning {iid}: {entry.get('maps_to_journey', '')}")
+    print(f"\n{'='*60}\nRunning {iid}: {task_label(entry)}")
     print(f"  sandbox={CONFIG['sandbox']} | agent={agent} | model={model} | trials={n}")
     # XHS_RUN_TS: fixed run timestamp (cloud workers get a unique one per task so run folders from
     # many machines never collide when merged into results/).

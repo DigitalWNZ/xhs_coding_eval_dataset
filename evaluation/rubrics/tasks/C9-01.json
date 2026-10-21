@@ -1,8 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C9-01",
-  "former_id": null,
-  "id_history": {},
   "category": "C9",
   "task": "Customer-provided / 潮玩零售店工作台（单文件 HTML：商品、订单、售后）",
   "framework": "evaluation/rubrics/coding_quality.json",

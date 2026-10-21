@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C6-04",
-  "former_id": "C6-06",
-  "id_history": {
-    "2026-10-13": "C6-02",
-    "2026-10-14": "C6-06"
-  },
   "category": "C6",
   "task": "Terminal-Bench 2.0 / mteb-retrieve",
   "framework": "evaluation/rubrics/coding_quality.json",

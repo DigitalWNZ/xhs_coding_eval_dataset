@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C7-01",
-  "former_id": "C6-02",
-  "id_history": {
-    "2026-10-13": "C8-03",
-    "2026-10-14": "C6-02"
-  },
   "category": "C7",
   "task": "DeepSWE v1.1 / drizzle-orm-window-function-builders",
   "framework": "evaluation/rubrics/coding_quality.json",

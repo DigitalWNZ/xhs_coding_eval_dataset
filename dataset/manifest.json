@@ -18,45 +18,31 @@
       "entries": [
         {
           "instance_id": "C6-01",
-          "former_id": "C6-01",
-          "file": "dataset/c6/C6-01_filter_js_from_html.json",
-          "maps_to_journey": "External: Terminal-Bench 2.0 / filter-js-from-html"
+          "file": "dataset/c6/C6-01_filter_js_from_html.json"
         },
         {
           "instance_id": "C6-02",
-          "former_id": "C6-03",
-          "file": "dataset/c6/C6-02_pebble_durability_wait_apis.json",
-          "maps_to_journey": "External: DeepSWE v1.1 / pebble-durability-wait-apis"
+          "file": "dataset/c6/C6-02_pebble_durability_wait_apis.json"
         },
         {
           "instance_id": "C6-03",
-          "former_id": "C6-04",
-          "file": "dataset/c6/C6-03_video_processing.json",
-          "maps_to_journey": "External: Terminal-Bench 2.0 / video-processing"
+          "file": "dataset/c6/C6-03_video_processing.json"
         },
         {
           "instance_id": "C6-04",
-          "former_id": "C6-06",
-          "file": "dataset/c6/C6-04_mteb_retrieve.json",
-          "maps_to_journey": "External: Terminal-Bench 2.0 / mteb-retrieve"
+          "file": "dataset/c6/C6-04_mteb_retrieve.json"
         },
         {
           "instance_id": "C6-05",
-          "former_id": "C7-01",
-          "file": "dataset/c6/C6-05_polyglot_c_py.json",
-          "maps_to_journey": "External: Terminal-Bench 2.0 / polyglot-c-py"
+          "file": "dataset/c6/C6-05_polyglot_c_py.json"
         },
         {
           "instance_id": "C6-06",
-          "former_id": "C7-03",
-          "file": "dataset/c6/C6-06_cancel_async_tasks.json",
-          "maps_to_journey": "External: Terminal-Bench 2.0 / cancel-async-tasks"
+          "file": "dataset/c6/C6-06_cancel_async_tasks.json"
         },
         {
           "instance_id": "C6-07",
-          "former_id": "C7-12",
-          "file": "dataset/c6/C6-07_query_persist_restored_query_state.json",
-          "maps_to_journey": "External: DeepSWE v1.1 / query-persist-restored-query-state"
+          "file": "dataset/c6/C6-07_query_persist_restored_query_state.json"
         }
       ]
     },
@@ -71,69 +57,47 @@
       "entries": [
         {
           "instance_id": "C7-01",
-          "former_id": "C6-02",
-          "file": "dataset/c7/C7-01_drizzle_orm_window_function_builders.json",
-          "maps_to_journey": "External: DeepSWE v1.1 / drizzle-orm-window-function-builders"
+          "file": "dataset/c7/C7-01_drizzle_orm_window_function_builders.json"
         },
         {
           "instance_id": "C7-02",
-          "former_id": "C7-04",
-          "file": "dataset/c7/C7-02_db_wal_recovery.json",
-          "maps_to_journey": "External: Terminal-Bench 2.0 / db-wal-recovery"
+          "file": "dataset/c7/C7-02_db_wal_recovery.json"
         },
         {
           "instance_id": "C7-03",
-          "former_id": "C7-05",
-          "file": "dataset/c7/C7-03_django__django-15280.json",
-          "maps_to_journey": "External: SWE-bench Verified / django__django-15280"
+          "file": "dataset/c7/C7-03_django__django-15280.json"
         },
         {
           "instance_id": "C7-04",
-          "former_id": "C7-06",
-          "file": "dataset/c7/C7-04_django__django-12965.json",
-          "maps_to_journey": "External: SWE-bench Verified / django__django-12965"
+          "file": "dataset/c7/C7-04_django__django-12965.json"
         },
         {
           "instance_id": "C7-05",
-          "former_id": "C7-07",
-          "file": "dataset/c7/C7-05_django__django-15503.json",
-          "maps_to_journey": "External: SWE-bench Verified / django__django-15503"
+          "file": "dataset/c7/C7-05_django__django-15503.json"
         },
         {
           "instance_id": "C7-06",
-          "former_id": "C7-08",
-          "file": "dataset/c7/C7-06_django__django-14376.json",
-          "maps_to_journey": "External: SWE-bench Verified / django__django-14376"
+          "file": "dataset/c7/C7-06_django__django-14376.json"
         },
         {
           "instance_id": "C7-07",
-          "former_id": "C7-09",
-          "file": "dataset/c7/C7-07_django__django-11532.json",
-          "maps_to_journey": "External: SWE-bench Verified / django__django-11532"
+          "file": "dataset/c7/C7-07_django__django-11532.json"
         },
         {
           "instance_id": "C7-08",
-          "former_id": "C7-10",
-          "file": "dataset/c7/C7-08_psf__requests-6028.json",
-          "maps_to_journey": "External: SWE-bench Verified / psf__requests-6028"
+          "file": "dataset/c7/C7-08_psf__requests-6028.json"
         },
         {
           "instance_id": "C7-09",
-          "former_id": "C7-11",
-          "file": "dataset/c7/C7-09_kgateway_consistent_hash_policy.json",
-          "maps_to_journey": "External: DeepSWE v1.1 / kgateway-consistent-hash-policy"
+          "file": "dataset/c7/C7-09_kgateway_consistent_hash_policy.json"
         },
         {
           "instance_id": "C7-10",
-          "former_id": "C7-13",
-          "file": "dataset/c7/C7-10_onedump_dump_encryption_pipeline.json",
-          "maps_to_journey": "External: DeepSWE v1.1 / onedump-dump-encryption-pipeline"
+          "file": "dataset/c7/C7-10_onedump_dump_encryption_pipeline.json"
         },
         {
           "instance_id": "C7-11",
-          "former_id": "C7-14",
-          "file": "dataset/c7/C7-11_geo_shapeindex_serialization.json",
-          "maps_to_journey": "External: DeepSWE v1.1 / geo-shapeindex-serialization"
+          "file": "dataset/c7/C7-11_geo_shapeindex_serialization.json"
         }
       ]
     },
@@ -148,9 +112,7 @@
       "entries": [
         {
           "instance_id": "C9-01",
-          "former_id": null,
-          "file": "dataset/c9/C9-01_toy_store_workbench.json",
-          "maps_to_journey": "Customer-provided / 潮玩零售店工作台（单文件 HTML：商品、订单、售后）"
+          "file": "dataset/c9/C9-01_toy_store_workbench.json"
         }
       ]
     }

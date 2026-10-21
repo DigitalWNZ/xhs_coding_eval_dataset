@@ -378,7 +378,7 @@ def build_prompt_c2(entry: dict) -> str:
 def run_c1_c2(entry: dict, category: str, agent: str, model: str, timeout: int) -> dict:
     instance_id = entry["instance_id"]
     print(f"\n{'='*60}")
-    print(f"Running {instance_id}: {entry.get('maps_to_journey', '')}")
+    print(f"Running {instance_id}: {env_runner.task_label(entry)}")
 
     prompt = build_prompt_c1(entry) if category == "c1" else build_prompt_c2(entry)
     work_dir = Path(tempfile.mkdtemp(prefix=f"{category}-"))
@@ -600,7 +600,7 @@ def run_c4(entry: dict, agent: str, model: str, timeout: int) -> dict:
     planted = entry["planted_defects"]
 
     print(f"\n{'='*60}")
-    print(f"Running {instance_id}: {entry.get('maps_to_journey', '')}")
+    print(f"Running {instance_id}: {env_runner.task_label(entry)}")
     print(f"  Planted defects: {len(planted)}")
 
     prompt = build_prompt_c4(entry)
@@ -1018,7 +1018,7 @@ def run_c5a(entry: dict, agent: str, model: str, timeout: int) -> dict:
     base_commit = entry["base_commit"]
 
     print(f"\n{'='*60}")
-    print(f"Running {instance_id}: {entry.get('maps_to_journey', '')}")
+    print(f"Running {instance_id}: {env_runner.task_label(entry)}")
 
     tmpdir = tempfile.mkdtemp(prefix=f"c5a-{instance_id.lower()}-")
     work_dir = Path(tmpdir) / "repo"
@@ -1333,7 +1333,7 @@ def run_c3(entry: dict, agent: str, model: str, timeout: int) -> dict:
     base_commit = entry["base_commit"]
 
     print(f"\n{'='*60}")
-    print(f"Running {instance_id}: {entry.get('maps_to_journey', '')}")
+    print(f"Running {instance_id}: {env_runner.task_label(entry)}")
     print(f"  FAIL_TO_PASS: {len(entry['FAIL_TO_PASS'])} tests | PASS_TO_PASS: {len(entry['PASS_TO_PASS'])} tests")
 
     tmpdir = tempfile.mkdtemp(prefix=f"c3-{instance_id.lower()}-")
@@ -1592,7 +1592,7 @@ def main():
     if args.dry_run:
         for entry in entries:
             print(f"\n{'='*60}")
-            print(f"{entry['instance_id']}: {entry.get('maps_to_journey', '')}")
+            print(f"{entry['instance_id']}: {env_runner.task_label(entry)}")
             if args.category == "c1":
                 print(build_prompt_c1(entry)[:500])
             elif args.category == "c2":

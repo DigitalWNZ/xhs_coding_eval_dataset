@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C7-11",
-  "former_id": "C7-14",
-  "id_history": {
-    "2026-10-13": "C8-06",
-    "2026-10-14": "C7-14"
-  },
   "category": "C7",
   "task": "DeepSWE v1.1 / geo-shapeindex-serialization",
   "framework": "evaluation/rubrics/coding_quality.json",

@@ -12,7 +12,7 @@ import random
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from idmap import current_id  # noqa: E402
+from idmap import current_id, task_label  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 XHS = next(p for p in (os.path.join(HERE, ".."), os.path.join(HERE, "..", "sources", "xhs"))
@@ -77,7 +77,7 @@ def results_report():
             inv = sum(not t["valid"] for t in ts)
             row.append(f"{sum(t['verifier_pass'] for t in ts)}/{len(ts)} · {f1(mean([t['quality_score'] for t in ts]))}"
                        + (f" ⚠{inv} invalid" if inv else ""))
-        o.append(f"| {eid} | {ents[eid]['maps_to_journey'].replace('External: ', '')} | " + " | ".join(row) + " |")
+        o.append(f"| {eid} | {task_label(ents[eid])} | " + " | ".join(row) + " |")
     for c in ("C6", "C7", "C8", "C9"):
         row = []
         for m in models:

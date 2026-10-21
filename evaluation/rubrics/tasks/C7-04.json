@@ -1,11 +1,6 @@
 {
   "format": "v3",
   "instance_id": "C7-04",
-  "former_id": "C7-06",
-  "id_history": {
-    "2026-10-13": "C7-03",
-    "2026-10-14": "C7-06"
-  },
   "category": "C7",
   "task": "SWE-bench Verified / django__django-12965",
   "framework": "evaluation/rubrics/coding_quality.json",

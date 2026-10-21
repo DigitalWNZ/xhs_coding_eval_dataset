@@ -21,7 +21,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from idmap import XHS, current_id  # noqa: E402  (maps the ID recorded by a run to the current ID)
+from idmap import XHS, current_id, task_label  # noqa: E402  (maps the ID recorded by a run to the current ID)
 FW = json.load(open(os.path.join(XHS, "evaluation/rubrics/coding_quality.json")))
 SC = {k: v["score"] for k, v in FW["levels"].items()}
 COMMON = [c["id"] for c in FW["common_items"]]
@@ -147,7 +147,7 @@ def main():
          "Readability, Maintainability, Robustness + 1–2 case items, perfect 1 / accept 0.6 / bad 0, quality = 100 × mean. "
          "D1 and D2 are not combined. Trials with no code change cannot be judged (na) and are excluded from D2.\n",
          "## Per case (passes/trials · D2 quality)\n",
-         "| Case | Former ID | Task | " + " | ".join(models) + " |", "|---|---|---|" + "---|" * len(models)]
+         "| Case | Task | " + " | ".join(models) + " |", "|---|---|" + "---|" * len(models)]
     for eid in sorted(ents):
         row = []
         for m in models:
@@ -159,8 +159,8 @@ def main():
             flag = "".join([f" ⚠{sum(not t['valid'] for t in ts)}" if any(not t["valid"] for t in ts) else "",
                             f" ∅{sum(t['no_code'] for t in ts)}" if any(t["no_code"] for t in ts) else ""])
             row.append(f"{p}/{len(ts)} · {f0(mean([t['quality_score'] for t in ts]))}{flag}")
-        task = ents[eid].get("maps_to_journey", "").replace("External: ", "")
-        o.append(f"| {eid} | {ents[eid].get('former_id', '')} | {task[:60]} | " + " | ".join(row) + " |")
+        task = task_label(ents[eid])
+        o.append(f"| {eid} | {task[:60]} | " + " | ".join(row) + " |")
     o.append("\n∅n = n trials ended with no code change (all were agent timeouts); ⚠n = invalid (validity audit).\n")
 
     o.append("## Per model\n")
@@ -209,7 +209,7 @@ def main():
             tc = mean([t["tool_calls"] for t in ts])
             tk = mean([t["tokens"] / 1000 if t["tokens"] else None for t in ts])
             row.append(f"{(f'{tm:.1f}' if tm is not None and tm < 10 else f0(tm))} · {f0(tc)} · {f0(tk)}")
-        task = ents[eid].get("maps_to_journey", "").replace("External: ", "")
+        task = task_label(ents[eid])
         o.append(f"| {eid} | {task[:45]} | " + " | ".join(row) + " |")
     o.append("\n## D2 item scores per model (mean over judged items, 0–100)\n")
     o.append("| Model | Readability | Maintainability | Robustness | Case-specific | Quality |")

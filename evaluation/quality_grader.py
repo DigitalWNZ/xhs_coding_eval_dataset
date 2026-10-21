@@ -588,7 +588,7 @@ def grade_trial(trial_dir: Path, entry: dict | None = None, judge: str | None = 
     flags = [{"check": k, "status": "provisional" if r.get("provisional") else "confirmed", "basis": r["basis"][:300]}
              for k, r in (("answer_access", leak), ("test_tampering", tamper)) if r["level"] == "bad"]
     score = float(ev.verdict.get("reward", 0) or 0)
-    out = {"run": run, "trial": trial_dir.name, "entry": entry["instance_id"], "former_id": entry.get("former_id"),
+    out = {"run": run, "trial": trial_dir.name, "entry": entry["instance_id"],
            "category": entry["category"], "agent": run.split("_")[1], "model": run.split("_")[2],
            "verifier_pass": score >= float(entry["verification"].get("pass_threshold", 1.0)),
            "verifier_reason": ev.verdict.get("reason"),
